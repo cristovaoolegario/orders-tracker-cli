@@ -1,0 +1,139 @@
+{
+  "objetos": [
+    {
+      "codObjeto": "QA695731454TL",
+      "dtPrevista": "2021-09-16T20:59:59",
+      "eventos": [
+        {
+          "codigo": "BDE",
+          "descricao": "Objeto entregue ao destinatário",
+          "dtHrCriado": "2021-09-06T15:58:08",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/smile.png"
+        },
+        {
+          "codigo": "OEC",
+          "descricao": "Objeto saiu para entrega ao destinatário",
+          "dtHrCriado": "2021-09-06T13:07:28",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "bairro": "BARREIRO",
+              "cep": "30647970",
+              "cidade": "BELO HORIZONTE",
+              "logradouro": "AVENIDA SINFRONIO BROCHADO",
+              "numero": "550",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/pre-atendimento-cor.png"
+        },
+        {
+          "codigo": "DO",
+          "descricao": "Objeto em trânsito - por favor aguarde",
+          "dtHrCriado": "2021-09-06T07:52:06",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "unidadeDestino": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/caminhao-cor.png"
+        },
+        {
+          "codigo": "DO",
+          "descricao": "Objeto em trânsito - por favor aguarde",
+          "dtHrCriado": "2021-09-03T08:04:33",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "SAO JOSE",
+              "uf": "SC"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "unidadeDestino": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "urlIcone": "/public-resources/img/caminhao-cor.png"
+        },
+        {
+          "codigo": "RO",
+          "descricao": "Objeto em trânsito - por favor aguarde",
+          "dtHrCriado": "2021-09-02T10:03:36",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "JOINVILLE",
+              "uf": "SC"
+            },
+            "tipo": "Agência dos Correios"
+          },
+          "unidadeDestino": {
+            "endereco": {
+              "cidade": "SAO JOSE",
+              "uf": "SC"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "urlIcone": "/public-resources/img/caminhao-cor.png"
+        },
+        {
+          "codigo": "PO",
+          "descricao": "Objeto postado após o horário limite da unidade",
+          "detalhe": "Sujeito a encaminhamento no próximo dia útil",
+          "dtHrCriado": "2021-09-01T16:40:51",
+          "tipo": "09",
+          "unidade": {
+            "endereco": {
+              "cidade": "JOINVILLE",
+              "uf": "SC"
+            },
+            "tipo": "Agência dos Correios"
+          },
+          "destinatario": {
+            "cep": "30620100"
+          },
+          "urlIcone": "/public-resources/img/agencia-cor.png"
+        }
+      ],
+      "modalidade": "F",
+      "tipoPostal": {
+        "categoria": "ENCOMENDA PAC",
+        "descricao": "ETIQUETA LOGICA PAC QG",
+        "sigla": "QG"
+      },
+      "habilitaAutoDeclaracao": false,
+      "permiteEncargoImportacao": false,
+      "habilitaPercorridaCarteiro": false,
+      "bloqueioObjeto": false,
+      "possuiLocker": false,
+      "habilitaLocker": false,
+      "habilitaCrowdshipping": false
+    }
+  ],
+  "quantidade": 1,
+  "resultado": "Todos os Eventos",
+  "versao": "1.6.11"
+}

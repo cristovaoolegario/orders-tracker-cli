@@ -1,0 +1,18 @@
+{
+  "objetos": [
+    {
+      "codObjeto": "bla",
+      "mensagem": "SRO-019: Objeto inválido",
+      "modalidade": "V",
+      "habilitaAutoDeclaracao": false,
+      "permiteEncargoImportacao": false,
+      "habilitaPercorridaCarteiro": false,
+      "bloqueioObjeto": false,
+      "possuiLocker": false,
+      "habilitaLocker": false
+    }
+  ],
+  "quantidade": 1,
+  "resultado": "Todos os Eventos",
+  "versao": "1.6.11"
+}

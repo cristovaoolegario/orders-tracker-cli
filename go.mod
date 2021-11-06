@@ -1,4 +1,4 @@
-module orders-tracker-cli
+module github.com/cristovaoolegario/orders-tracker-cli
 
 go 1.16
 

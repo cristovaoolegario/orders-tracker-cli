@@ -5,6 +5,7 @@ import (
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/services"
+	"time"
 )
 
 // CorreiosCLI provides the cli validation for correios command
@@ -39,5 +40,9 @@ func FormatEventByEventCodeAndEventType(event dto.Event) string {
 
 // FormatDateTimeCreated formats the date
 func FormatDateTimeCreated(date string) string {
-	return fmt.Sprintf("⏱ - " + date)
+	formattedTime, err := time.Parse("2006-01-02T15:04:05", date)
+	if err != nil{
+		return "⏱ - No time registered for operation"
+	}
+	return fmt.Sprintf("⏱ - %s", formattedTime.Format("02 Jan 06 15:04"))
 }

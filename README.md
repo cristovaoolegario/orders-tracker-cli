@@ -28,7 +28,7 @@ orders-tracker-cli correios YOUR_ORDER_CODE
 
 ### Example 
 <p align="center">
-  <img src="https://github.com/cristovaoolegario/cristovaoolegario/orders-tracker-cli/blob/main/static/usage_example.gif?raw=true" alt="How to track a correios order"/>
+  <img src="https://github.com/cristovaoolegario/orders-tracker-cli/blob/main/static/usage_example.gif?raw=true" alt="How to track a correios order"/>
 </p>
 
 ##  Contributing 

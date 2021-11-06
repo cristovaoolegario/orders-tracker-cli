@@ -1,8 +1,8 @@
 package mock
 
 import (
-	"orders-tracker-cli/internal/pkg/http/dto"
-	"orders-tracker-cli/internal/pkg/http/services"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/services"
 )
 
 var _ services.ICorreiosService = (*CorreiosServiceMock)(nil)

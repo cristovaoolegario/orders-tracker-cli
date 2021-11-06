@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
+	mock "github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/mock/mock_services"
 	"io/ioutil"
-	"orders-tracker-cli/internal/pkg/http/dto"
-	mock "orders-tracker-cli/internal/pkg/mock/mock_services"
 	"os"
 	"testing"
 )

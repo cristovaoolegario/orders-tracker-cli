@@ -5,7 +5,10 @@
 ![GitHub](https://img.shields.io/github/license/cristovaoolegario/orders-tracker-cli)
 
 
-A CLI tool written in golang to track your orders. (only supports correios API by now)
+A CLI tool written in golang to track your orders.
+
+It supports the following APIs:
+- Correios API
 
 > This project still under development. 
 
@@ -22,3 +25,11 @@ go install github.com/cristovaoolegario/orders-tracker-cli
 ```shell
 orders-tracker-cli correios YOUR_ORDER_CODE
 ```
+
+### Example 
+<p align="center">
+  <img src="https://github.com/cristovaoolegario/cristovaoolegario/orders-tracker-cli/blob/main/static/usage_example.gif?raw=true" alt="How to track a correios order"/>
+</p>
+
+##  Contributing 
+If you want to contribute please fork the repository and get your hands dirty, and make the changes as you'd like and submit the Pull Request.

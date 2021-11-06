@@ -13,7 +13,7 @@ type CorreiosCLI struct {
 }
 
 // ProvideCorreiosCLI provides a CorreiosCLI
-func ProvideCorreiosCLI(baseURL string) CorreiosCLI {
+var ProvideCorreiosCLI = func(baseURL string) CorreiosCLI {
 	return CorreiosCLI{service: services.ProvideCorreiosService(baseURL)}
 }
 

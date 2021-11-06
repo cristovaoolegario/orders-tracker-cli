@@ -11,6 +11,17 @@ import (
 	"testing"
 )
 
+func TestProvideCorreiosCLI(t *testing.T) {
+	t.Run("Should return a CorreiosCLI instance", func(t *testing.T) {
+		baseURL := "test"
+		cli := ProvideCorreiosCLI(baseURL)
+
+		if cli.service == nil {
+			t.Errorf("Should have provided a service.")
+		}
+	})
+}
+
 func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 
 	t.Run("Should print error message when don't find order", func(t *testing.T) {

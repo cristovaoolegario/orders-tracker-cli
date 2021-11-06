@@ -14,7 +14,7 @@ var correiosCmd = &cobra.Command{
 	Short: "Track an order from correios API",
 	Long:  "A longer description for tracking an order from correios API",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if len(args) == 0{
+		if len(args) == 0 {
 			return errors.New("you need to provide an order number")
 		}
 		correiosCmd := cli.ProvideCorreiosCLI(pkg.CorreiosBaseURL)

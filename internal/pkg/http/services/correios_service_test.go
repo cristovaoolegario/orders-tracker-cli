@@ -8,53 +8,56 @@ import (
 	"testing"
 )
 
-func TestFindOrderByNumber_ShouldReturnDataWhenOrderExists(t *testing.T) {
-	orderNumber := "QA695731454TL"
-	ts := httptest.NewServer(
-		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			jsonFile, _ := os.Open("../../mock/mock_data/valid_code.json")
+func TestCorreiosService_FindOrderByNumber(t *testing.T) {
 
-			defer jsonFile.Close()
+	t.Run("Should return data when order exists", func(t *testing.T) {
+		orderNumber := "QA695731454TL"
+		ts := httptest.NewServer(
+			http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				jsonFile, _ := os.Open("../../mock/mock_data/valid_code.json")
 
-			byteValue, _ := ioutil.ReadAll(jsonFile)
+				defer jsonFile.Close()
 
-			w.Header().Add("Content-Type", "application/json")
-			w.Write(byteValue)
-		}),
-	)
+				byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	defer ts.Close()
+				w.Header().Add("Content-Type", "application/json")
+				w.Write(byteValue)
+			}),
+		)
 
-	service := ProvideCorreiosService(ts.URL + "/%s")
-	order, err := service.FindOrderByNumber(orderNumber)
+		defer ts.Close()
 
-	if err != nil && order == nil {
-		t.Errorf("Error: %s", err)
-	}
-}
+		service := ProvideCorreiosService(ts.URL + "/%s")
+		order, err := service.FindOrderByNumber(orderNumber)
 
-func TestFindOrderByNumber_ShouldReturnErrorWhenOrderDontExists(t *testing.T) {
-	orderNumber := "bla"
+		if err != nil && order == nil {
+			t.Errorf("Error: %s", err)
+		}
+	})
 
-	ts := httptest.NewServer(
-		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			jsonFile, _ := os.Open("../../mock/mock_data/invalid_code.json")
+	t.Run("Should return error when order don't exists", func(t *testing.T) {
+		orderNumber := "bla"
 
-			defer jsonFile.Close()
+		ts := httptest.NewServer(
+			http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+				jsonFile, _ := os.Open("../../mock/mock_data/invalid_code.json")
 
-			byteValue, _ := ioutil.ReadAll(jsonFile)
+				defer jsonFile.Close()
 
-			w.Header().Add("Content-Type", "application/json")
-			w.Write(byteValue)
-		}),
-	)
+				byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	defer ts.Close()
+				w.Header().Add("Content-Type", "application/json")
+				w.Write(byteValue)
+			}),
+		)
 
-	service := ProvideCorreiosService(ts.URL + "/%s")
-	result, err := service.FindOrderByNumber(orderNumber)
+		defer ts.Close()
 
-	if result != nil && err == nil {
-		t.Errorf("Should return a error when there's a problem with the search.")
-	}
+		service := ProvideCorreiosService(ts.URL + "/%s")
+		result, err := service.FindOrderByNumber(orderNumber)
+
+		if result != nil && err == nil {
+			t.Errorf("Should return a error when there's a problem with the search.")
+		}
+	})
 }

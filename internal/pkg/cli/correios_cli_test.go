@@ -42,7 +42,7 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		expected := "❌ - Test error\n"
+		expected := "❌ Test error\n"
 		if string(out) != expected {
 			t.Errorf("Expected %q, got %q", expected, out)
 		}
@@ -74,7 +74,7 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		expected := "🎁 - Objeto entregue ao destinatário\n⏱ - 06 Sep 21 15:58\n\n"
+		expected := "🎁 Objeto entregue ao destinatário\n⏱ 06 Sep 21 15:58\n\n"
 		if string(out) != expected {
 			t.Errorf("Expected %q, got %q", expected, out)
 		}
@@ -112,8 +112,9 @@ func TestFormatEventByEventCode(t *testing.T) {
 				Description: "test",
 			})
 
-			if formattedString != fmt.Sprintf("%s - test", item.Icon) {
-				t.Errorf("Expected: %s Got: %s", fmt.Sprintf("%q - test\n", item.Icon), formattedString)
+			expected := fmt.Sprintf("%s test", item.Icon)
+			if formattedString != expected {
+				t.Errorf("Expected: %s Got: %s", expected, formattedString)
 			}
 		}
 	})
@@ -122,7 +123,7 @@ func TestFormatEventByEventCode(t *testing.T) {
 func TestFormatDateTimeCreated(t *testing.T) {
 	t.Run("Should return No time registered when theres an error formatting", func(t *testing.T) {
 		result := FormatDateTimeCreated("")
-		expected := "⏱ - No time registered for operation"
+		expected := "⏱ No time registered for operation"
 		if result != expected {
 			t.Fatalf("Expected: %s, Received: %s", expected, result)
 		}
@@ -139,7 +140,7 @@ func TestFormatDateTimeCreated(t *testing.T) {
 
 		for _, item := range items {
 			result := FormatDateTimeCreated(item.input)
-			expected := fmt.Sprintf("⏱ - %s", item.expected)
+			expected := fmt.Sprintf("⏱ %s", item.expected)
 			if result != expected {
 				t.Fatalf("Expected: %s, Received: %s", expected, result)
 			}

@@ -1,0 +1,40 @@
+{
+  "objetos": [
+    {
+      "codObjeto": "QA695731454TL",
+      "dtPrevista": "2021-09-16T20:59:59",
+      "eventos": [
+        {
+          "codigo": "BDE",
+          "descricao": "Objeto entregue ao destinatário",
+          "dtHrCriado": "2021-09-06T15:58:08",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/smile.png"
+        }
+      ],
+      "modalidade": "F",
+      "tipoPostal": {
+        "categoria": "ENCOMENDA PAC",
+        "descricao": "ETIQUETA LOGICA PAC QG",
+        "sigla": "QG"
+      },
+      "habilitaAutoDeclaracao": false,
+      "permiteEncargoImportacao": false,
+      "habilitaPercorridaCarteiro": false,
+      "bloqueioObjeto": false,
+      "possuiLocker": false,
+      "habilitaLocker": false,
+      "habilitaCrowdshipping": false
+    }
+  ],
+  "quantidade": 1,
+  "resultado": "Todos os Eventos",
+  "versao": "1.6.11"
+}

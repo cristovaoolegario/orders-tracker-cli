@@ -28,21 +28,21 @@ func (cli *CorreiosCLI) RetrieveOrder(orderNumber string) {
 			fmt.Println()
 		}
 	} else {
-		fmt.Printf("❌ - %s\n", err.Error())
+		fmt.Printf("❌ %s\n", err.Error())
 	}
 }
 
 // FormatEventByEventCodeAndEventType formats a string based on the dto.Event props
 func FormatEventByEventCodeAndEventType(event dto.Event) string {
 	searchString := fmt.Sprintf("%s%s", event.Code, event.Type)
-	return fmt.Sprintf("%s - %s", pkg.IconDictionary[searchString], event.Description)
+	return fmt.Sprintf("%s %s", pkg.IconDictionary[searchString], event.Description)
 }
 
 // FormatDateTimeCreated formats the date
 func FormatDateTimeCreated(date string) string {
 	formattedTime, err := time.Parse("2006-01-02T15:04:05", date)
 	if err != nil{
-		return "⏱ - No time registered for operation"
+		return "⏱ No time registered for operation"
 	}
-	return fmt.Sprintf("⏱ - %s", formattedTime.Format("02 Jan 06 15:04"))
+	return fmt.Sprintf("⏱ %s", formattedTime.Format("02 Jan 06 15:04"))
 }

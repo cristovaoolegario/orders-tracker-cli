@@ -2,6 +2,8 @@ package cli
 
 import (
 	"fmt"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/services"
 )
 
@@ -20,11 +22,22 @@ func (cli *CorreiosCLI) RetrieveOrder(orderNumber string) {
 	response, err := cli.service.FindOrderByNumber(orderNumber)
 	if err == nil {
 		for _, event := range response.Objects[0].Events {
-			fmt.Println("🚚 - " + event.Description)
-			fmt.Println("⏱ - " + event.DateTimeCreated)
+			fmt.Println(FormatEventByEventCodeAndEventType(event))
+			fmt.Println(FormatDateTimeCreated(event.DateTimeCreated))
 			fmt.Println()
 		}
 	} else {
 		fmt.Printf("❌ - %s\n", err.Error())
 	}
+}
+
+// FormatEventByEventCodeAndEventType formats a string based on the dto.Event props
+func FormatEventByEventCodeAndEventType(event dto.Event) string {
+	searchString := fmt.Sprintf("%s%s", event.Code, event.Type)
+	return fmt.Sprintf("%s - %s", pkg.IconDictionary[searchString], event.Description)
+}
+
+// FormatDateTimeCreated formats the date
+func FormatDateTimeCreated(date string) string {
+	return fmt.Sprintf("⏱ - " + date)
 }

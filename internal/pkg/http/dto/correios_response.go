@@ -10,19 +10,19 @@ type CorreiosResponse struct {
 
 // Event represents an event of correios API response
 type Event struct {
-	Code            string       `json:"codigo"`
-	Description     string       `json:"descricao"`
-	DateTimeCreated string       `json:"dtHrCriado"`
-	Objects         []Object     `json:"objetos"`
-	Amount          int          `json:"quantidade"`
-	Result          string       `json:"resultado"`
-	Version         string       `json:"versao"`
-	Type            string       `json:"tipo"`
-	Unit            Unit   `json:"unidade"`
-	IconURL         string `json:"urlIcone"`
-	DestinationUnit Unit   `json:"unidadeDestino,omitempty"`
-	Detail    string    `json:"detalhe,omitempty"`
-	Recipient Recipient `json:"destinatario,omitempty"`
+	Code            string    `json:"codigo"`
+	Description     string    `json:"descricao"`
+	DateTimeCreated string    `json:"dtHrCriado"`
+	Objects         []Object  `json:"objetos"`
+	Amount          int       `json:"quantidade"`
+	Result          string    `json:"resultado"`
+	Version         string    `json:"versao"`
+	Type            string    `json:"tipo"`
+	Unit            Unit      `json:"unidade"`
+	IconURL         string    `json:"urlIcone"`
+	DestinationUnit Unit      `json:"unidadeDestino,omitempty"`
+	Detail          string    `json:"detalhe,omitempty"`
+	Recipient       Recipient `json:"destinatario,omitempty"`
 }
 
 // Object represents an object of correios API response
@@ -31,8 +31,8 @@ type Object struct {
 	Message      string     `json:"mensagem,omitempty"`
 	ExpectedDate string     `json:"dtPrevista,omitempty"`
 	Events       []Event    `json:"eventos,omitempty"`
-	Modality   string     `json:"modalidade,omitempty"`
-	PostalType PostalType `json:"tipoPostal,omitempty"`
+	Modality     string     `json:"modalidade,omitempty"`
+	PostalType   PostalType `json:"tipoPostal,omitempty"`
 }
 
 // Address represents an address of correios API response

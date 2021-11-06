@@ -42,8 +42,9 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		if string(out) != fmt.Sprintf("❌ - Test error\n") {
-			t.Errorf("Expected %q, got %q", "❌ - Test error\n", out)
+		expected := "❌ - Test error\n"
+		if string(out) != expected {
+			t.Errorf("Expected %q, got %q", expected, out)
 		}
 	})
 
@@ -73,8 +74,9 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		if string(out) != fmt.Sprintf("🎁 - Objeto entregue ao destinatário\n⏱ - 2021-09-06T15:58:08\n\n") {
-			t.Errorf("Expected %q, got %q", fmt.Sprintf("🎁 - Objeto entregue ao destinatário\n⏱ - 2021-09-06T15:58:08\n"), out)
+		expected := "🎁 - Objeto entregue ao destinatário\n⏱ - 2021-09-06T15:58:08\n\n"
+		if string(out) != expected {
+			t.Errorf("Expected %q, got %q", expected, out)
 		}
 	})
 }

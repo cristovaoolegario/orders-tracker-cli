@@ -10,7 +10,9 @@ A CLI tool written in golang to track your orders. (only supports correios API b
 ## Installing
 
 ```shell
-go install orders-tracker-cli
+go get github.com/cristovaoolegario/orders-tracker-cli
+
+go install github.com/cristovaoolegario/orders-tracker-cli
 ```
 
 ## Usage

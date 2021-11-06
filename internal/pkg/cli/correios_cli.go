@@ -2,7 +2,7 @@ package cli
 
 import (
 	"fmt"
-	"orders-tracker-cli/internal/pkg/http/services"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/services"
 )
 
 // CorreiosCLI provides the cli validation for correios command

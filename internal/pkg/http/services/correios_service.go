@@ -10,7 +10,9 @@ import (
 	"time"
 )
 
-const BaseUrl = "https://proxyapp.correios.com.br/v1/sro-rastro/%s"
+type ICorreiosService interface {
+	FindOrderByNumber(orderNumber string) (*dto.CorreiosResponse, error)
+}
 
 // CorreiosService is the service that calls correios APIs
 type CorreiosService struct {
@@ -19,8 +21,8 @@ type CorreiosService struct {
 }
 
 // ProvideCorreiosService provides a new Correios service
-func ProvideCorreiosService(url string) CorreiosService {
-	return CorreiosService{&http.Client{
+var ProvideCorreiosService = func(url string) ICorreiosService {
+	return &CorreiosService{&http.Client{
 		Timeout: time.Duration(10) * time.Second,
 	}, url}
 }
@@ -45,7 +47,7 @@ func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosR
 	responseObject := dto.CorreiosResponse{}
 	json.Unmarshal(bodyBytes, &responseObject)
 	errMsg := responseObject.Objetos[0].Mensagem
-	if  errMsg != "" {
+	if errMsg != "" {
 		return nil, errors.New(errMsg)
 	}
 	return &responseObject, nil

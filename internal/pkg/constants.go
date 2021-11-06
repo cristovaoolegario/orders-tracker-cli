@@ -1,4 +1,4 @@
 package pkg
 
-
-const CorreiosBaseUrl = "https://proxyapp.correios.com.br/v1/sro-rastro/%s"
+// CorreiosBaseURL correios API base URL
+const CorreiosBaseURL = "https://proxyapp.correios.com.br/v1/sro-rastro/%s"

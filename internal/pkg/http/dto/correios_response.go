@@ -1,63 +1,64 @@
 package dto
 
+// CorreiosResponse represents the entire object of correios API response
 type CorreiosResponse struct {
-	Objetos    []Objeto `json:"objetos,omitempty"`
-	Quantidade int      `json:"quantidade,omitempty"`
-	Resultado  string   `json:"resultado,omitempty"`
-	Versao     string   `json:"versao,omitempty"`
+	Objects []Object `json:"objetos,omitempty"`
+	Amount  int      `json:"quantidade,omitempty"`
+	Result  string   `json:"resultado,omitempty"`
+	Version string   `json:"versao,omitempty"`
 }
 
-type Evento struct {
-	Codigo         string       `json:"codigo"`
-	Descricao      string       `json:"descricao"`
-	DtHrCriado     string       `json:"dtHrCriado"`
-	Objetos        []Objeto     `json:"objetos"`
-	Quantidade     int          `json:"quantidade"`
-	Resultado      string       `json:"resultado"`
-	Versao         string       `json:"versao"`
-	Tipo           string       `json:"tipo"`
-	Unidade        Unidade      `json:"unidade"`
-	UrlIcone       string       `json:"urlIcone"`
-	UnidadeDestino Unidade      `json:"unidadeDestino,omitempty"`
-	Detalhe        string       `json:"detalhe,omitempty"`
-	Destinatario   Destinatario `json:"destinatario,omitempty"`
+// Event represents an event of correios API response
+type Event struct {
+	Code            string       `json:"codigo"`
+	Description     string       `json:"descricao"`
+	DateTimeCreated string       `json:"dtHrCriado"`
+	Objects         []Object     `json:"objetos"`
+	Amount          int          `json:"quantidade"`
+	Result          string       `json:"resultado"`
+	Version         string       `json:"versao"`
+	Type            string       `json:"tipo"`
+	Unit            Unit   `json:"unidade"`
+	IconURL         string `json:"urlIcone"`
+	DestinationUnit Unit   `json:"unidadeDestino,omitempty"`
+	Detail    string    `json:"detalhe,omitempty"`
+	Recipient Recipient `json:"destinatario,omitempty"`
 }
 
-type Objeto struct {
-	CodObjeto                  string     `json:"codObjeto,omitempty"`
-	Mensagem                   string     `json:"mensagem,omitempty"`
-	DtPrevista                 string     `json:"dtPrevista,omitempty"`
-	Eventos                    []Evento   `json:"eventos,omitempty"`
-	Modalidade                 string     `json:"modalidade,omitempty"`
-	TipoPostal                 TipoPostal `json:"tipoPostal,omitempty"`
-	HabilitaAutoDeclaracao     bool       `json:"habilitaAutoDeclaracao,omitempty"`
-	PermiteEncargoImportacao   bool       `json:"permiteEncargoImportacao,omitempty"`
-	HabilitaPercorridaCarteiro bool       `json:"habilitaPercorridaCarteiro,omitempty"`
-	BloqueioObjeto             bool       `json:"bloqueioObjeto,omitempty"`
-	PossuiLocker               bool       `json:"possuiLocker,omitempty"`
-	HabilitaLocker             bool       `json:"habilitaLocker,omitempty"`
-	HabilitaCrowdshipping      bool       `json:"habilitaCrowdshipping,omitempty"`
+// Object represents an object of correios API response
+type Object struct {
+	ObjectCode   string     `json:"codObjeto,omitempty"`
+	Message      string     `json:"mensagem,omitempty"`
+	ExpectedDate string     `json:"dtPrevista,omitempty"`
+	Events       []Event    `json:"eventos,omitempty"`
+	Modality   string     `json:"modalidade,omitempty"`
+	PostalType PostalType `json:"tipoPostal,omitempty"`
 }
 
-type Endereco struct {
-	Cidade     string `json:"cidade"`
-	Uf         string `json:"uf"`
-	Bairro     string `json:"bairro,omitempty"`
-	Cep        string `json:"cep,omitempty"`
-	Logradouro string `json:"logradouro,omitempty"`
-	Numero     string `json:"numero,omitempty"`
+// Address represents an address of correios API response
+type Address struct {
+	City     string `json:"cidade"`
+	State    string `json:"uf"`
+	District string `json:"bairro,omitempty"`
+	Cep      string `json:"cep,omitempty"`
+	Street   string `json:"logradouro,omitempty"`
+	Number   string `json:"numero,omitempty"`
 }
 
-type Unidade struct {
-	Endereco Endereco `json:"endereco"`
-	Tipo     string   `json:"tipo"`
+// Unit represents a unit of correios API response
+type Unit struct {
+	Address Address `json:"endereco"`
+	Type    string  `json:"tipo"`
 }
 
-type Destinatario struct {
+// Recipient represents a recipient of correios API response
+type Recipient struct {
 	Cep string `json:"cep"`
 }
-type TipoPostal struct {
-	Categoria string `json:"categoria"`
-	Descricao string `json:"descricao"`
-	Sigla     string `json:"sigla"`
+
+// PostalType represents a postal type of correios API response
+type PostalType struct {
+	Category    string `json:"categoria"`
+	Description string `json:"descricao"`
+	Initials    string `json:"sigla"`
 }

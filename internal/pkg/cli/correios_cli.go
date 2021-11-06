@@ -5,20 +5,23 @@ import (
 	"orders-tracker-cli/internal/pkg/http/services"
 )
 
+// CorreiosCLI provides the cli validation for correios command
 type CorreiosCLI struct {
 	service services.ICorreiosService
 }
 
-func ProvideCorreiosCLI(baseUrl string) CorreiosCLI {
-	return CorreiosCLI{service: services.ProvideCorreiosService(baseUrl)}
+// ProvideCorreiosCLI provides a CorreiosCLI
+func ProvideCorreiosCLI(baseURL string) CorreiosCLI {
+	return CorreiosCLI{service: services.ProvideCorreiosService(baseURL)}
 }
 
+// RetrieveOrder prints the order data on the terminal
 func (cli *CorreiosCLI) RetrieveOrder(orderNumber string) {
 	response, err := cli.service.FindOrderByNumber(orderNumber)
 	if err == nil {
-		for _, evento := range response.Objetos[0].Eventos {
-			fmt.Println("🚚 - " + evento.Descricao)
-			fmt.Println("⏱ - " + evento.DtHrCriado)
+		for _, event := range response.Objects[0].Events {
+			fmt.Println("🚚 - " + event.Description)
+			fmt.Println("⏱ - " + event.DateTimeCreated)
 			fmt.Println()
 		}
 	} else {

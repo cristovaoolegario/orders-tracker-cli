@@ -10,6 +10,7 @@ import (
 	"time"
 )
 
+// ICorreiosService represents an interface of CorreiosService
 type ICorreiosService interface {
 	FindOrderByNumber(orderNumber string) (*dto.CorreiosResponse, error)
 }
@@ -17,7 +18,7 @@ type ICorreiosService interface {
 // CorreiosService is the service that calls correios APIs
 type CorreiosService struct {
 	client  *http.Client
-	baseUrl string
+	baseURL string
 }
 
 // ProvideCorreiosService provides a new Correios service
@@ -29,7 +30,7 @@ var ProvideCorreiosService = func(url string) ICorreiosService {
 
 // FindOrderByNumber returns the order data or a error
 func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosResponse, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf(cs.baseUrl, orderNumber), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf(cs.baseURL, orderNumber), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -46,7 +47,7 @@ func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosR
 	}
 	responseObject := dto.CorreiosResponse{}
 	json.Unmarshal(bodyBytes, &responseObject)
-	errMsg := responseObject.Objetos[0].Mensagem
+	errMsg := responseObject.Objects[0].Message
 	if errMsg != "" {
 		return nil, errors.New(errMsg)
 	}

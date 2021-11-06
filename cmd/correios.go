@@ -11,13 +11,13 @@ import (
 // correiosCmd represents the correios command
 var correiosCmd = &cobra.Command{
 	Use:   "correios",
-	Short: "Track a order from correios API.",
-	Long:  "Track a order from correios API.",
+	Short: "Track an order from correios API",
+	Long:  "A longer description for tracking an order from correios API",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		if len(args) == 0{
-			return errors.New("You need to provide an order number!")
+			return errors.New("you need to provide an order number")
 		}
-		correiosCmd := cli.ProvideCorreiosCLI(pkg.CorreiosBaseUrl)
+		correiosCmd := cli.ProvideCorreiosCLI(pkg.CorreiosBaseURL)
 		correiosCmd.RetrieveOrder(args[0])
 		return nil
 	},

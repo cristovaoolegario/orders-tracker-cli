@@ -12,7 +12,7 @@ func TestFindOrderByNumber_ShouldReturnDataWhenOrderExists(t *testing.T) {
 	orderNumber := "QA695731454TL"
 	ts := httptest.NewServer(
 		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			jsonFile, _ := os.Open("../../mock_data/valid_code.json")
+			jsonFile, _ := os.Open("../../mock/mock_data/valid_code.json")
 
 			defer jsonFile.Close()
 
@@ -38,7 +38,7 @@ func TestFindOrderByNumber_ShouldReturnErrorWhenOrderDontExists(t *testing.T) {
 
 	ts := httptest.NewServer(
 		http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-			jsonFile, _ := os.Open("../../mock_data/invalid_code.json")
+			jsonFile, _ := os.Open("../../mock/mock_data/invalid_code.json")
 
 			defer jsonFile.Close()
 

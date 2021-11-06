@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
 	"io/ioutil"
 	"net/http"
-	"orders-tracker-cli/internal/pkg/http/dto"
 	"time"
 )
 

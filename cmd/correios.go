@@ -3,9 +3,9 @@ package cmd
 
 import (
 	"errors"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli"
 	"github.com/spf13/cobra"
-	"orders-tracker-cli/internal/pkg"
-	"orders-tracker-cli/internal/pkg/cli"
 )
 
 // correiosCmd represents the correios command

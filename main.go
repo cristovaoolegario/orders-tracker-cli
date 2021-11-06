@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "orders-tracker-cli/cmd"
+import "github.com/cristovaoolegario/orders-tracker-cli/cmd"
 
 func main() {
 	cmd.Execute()

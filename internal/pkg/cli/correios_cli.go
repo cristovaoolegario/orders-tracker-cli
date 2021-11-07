@@ -28,16 +28,16 @@ func (cli *CorreiosCLI) RetrieveOrder(orderNumber string) []list.Item {
 	if err == nil {
 		for _, event := range response.Objects[0].Events {
 			item := components.Item{
-				FormatEventByEventCodeAndEventType(event),
-				FormatDateTimeCreated(event.DateTimeCreated),
+				Text: FormatEventByEventCodeAndEventType(event),
+				Time: FormatDateTimeCreated(event.DateTimeCreated),
 			}
 			renderList = append(renderList, []list.Item{item}...)
 		}
 	} else {
 		renderList = []list.Item{
 			components.Item{
-				fmt.Sprintf("❌\t%s", err.Error()),
-				"",
+				Text: fmt.Sprintf("❌\t%s", err.Error()),
+				Time: "",
 			},
 		}
 	}

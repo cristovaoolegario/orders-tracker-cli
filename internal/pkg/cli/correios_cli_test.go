@@ -4,11 +4,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
-	mock "github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/mock/mock_services"
 	"io/ioutil"
 	"os"
 	"testing"
+
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
+	mock "github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/mock/mock_services"
 )
 
 func TestProvideCorreiosCLI(t *testing.T) {
@@ -32,19 +33,11 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 			return nil, errors.New("Test error")
 		}
 
-		rescueStdout := os.Stdout
-		r, w, _ := os.Pipe()
-		os.Stdout = w
+		orderData := cli.RetrieveOrder("not_an_order_number")
 
-		cli.RetrieveOrder("not_an_order_number")
-
-		w.Close()
-		out, _ := ioutil.ReadAll(r)
-		os.Stdout = rescueStdout
-
-		expected := "❌ Test error\n"
-		if string(out) != expected {
-			t.Errorf("Expected %q, got %q", expected, out)
+		expected := "❌ \tTest error"
+		if len(orderData) == 0 && orderData[0].Text != expected {
+			t.Errorf("Expected %q, got %q", expected, orderData)
 		}
 	})
 
@@ -64,19 +57,18 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 			return &responseObject, nil
 		}
 
-		rescueStdout := os.Stdout
-		r, w, _ := os.Pipe()
-		os.Stdout = w
+		orderData := cli.RetrieveOrder("an_order_number")
 
-		cli.RetrieveOrder("an_order_number")
+		expectedDescription := "🎁\tObjeto entregue ao destinatário"
+		expectedTime := "⏱\t06 Sep 21 15:58"
 
-		w.Close()
-		out, _ := ioutil.ReadAll(r)
-		os.Stdout = rescueStdout
-
-		expected := "🎁 Objeto entregue ao destinatário\n⏱ 06 Sep 21 15:58\n\n"
-		if string(out) != expected {
-			t.Errorf("Expected %q, got %q", expected, out)
+		if len(orderData) >= 0 {
+			if orderData[0].Text != expectedDescription {
+				t.Errorf("Expected %q, got %q", expectedDescription, orderData[0].Text)
+			}
+			if orderData[0].Time != expectedTime {
+				t.Errorf("Expected %q, got %q", expectedTime, orderData[0].Time)
+			}
 		}
 	})
 }
@@ -94,7 +86,7 @@ func TestFormatEventByEventCode(t *testing.T) {
 			{"DO", "01", "🚚"},
 			{"RO", "01", "🚚"},
 			{"PO", "01", "📦"},
-			{"PAR", "10", "🔎✅"},
+			{"PAR", "10", "✅"},
 			{"PAR", "16", "🛬"},
 			{"PAR", "17", "💸"},
 			{"PAR", "18", "🗺"},
@@ -112,7 +104,7 @@ func TestFormatEventByEventCode(t *testing.T) {
 				Description: "test",
 			})
 
-			expected := fmt.Sprintf("%s test", item.Icon)
+			expected := fmt.Sprintf("%s\ttest", item.Icon)
 			if formattedString != expected {
 				t.Errorf("Expected: %s Got: %s", expected, formattedString)
 			}
@@ -123,15 +115,15 @@ func TestFormatEventByEventCode(t *testing.T) {
 func TestFormatDateTimeCreated(t *testing.T) {
 	t.Run("Should return No time registered when theres an error formatting", func(t *testing.T) {
 		result := FormatDateTimeCreated("")
-		expected := "⏱ No time registered for operation"
+		expected := "⏱\tNo time registered for operation"
 		if result != expected {
 			t.Fatalf("Expected: %s, Received: %s", expected, result)
 		}
 	})
 
 	t.Run("Should return time formatted in DD/MM/YYYY when theres no error formatting", func(t *testing.T) {
-		items := []struct{
-			input string
+		items := []struct {
+			input    string
 			expected string
 		}{
 			{"2021-11-04T15:25:08", "04 Nov 21 15:25"},
@@ -140,7 +132,7 @@ func TestFormatDateTimeCreated(t *testing.T) {
 
 		for _, item := range items {
 			result := FormatDateTimeCreated(item.input)
-			expected := fmt.Sprintf("⏱ %s", item.expected)
+			expected := fmt.Sprintf("⏱\t%s", item.expected)
 			if result != expected {
 				t.Fatalf("Expected: %s, Received: %s", expected, result)
 			}

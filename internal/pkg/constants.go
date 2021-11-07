@@ -11,7 +11,7 @@ var IconDictionary = map[string]string{
 	"DO01":  "🚚",
 	"RO01":  "🚚",
 	"PO01":  "📦",
-	"PAR10": "🔎✅",
+	"PAR10": "✅",
 	"PAR16": "🛬",
 	"PAR17": "💸",
 	"PAR18": "🗺",

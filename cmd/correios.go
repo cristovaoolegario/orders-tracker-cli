@@ -3,6 +3,7 @@ package cmd
 
 import (
 	"errors"
+
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli"
 	"github.com/spf13/cobra"
@@ -18,7 +19,7 @@ var correiosCmd = &cobra.Command{
 			return errors.New("you need to provide an order number")
 		}
 		correiosCmd := cli.ProvideCorreiosCLI(pkg.CorreiosBaseURL)
-		correiosCmd.RetrieveOrder(args[0])
+		correiosCmd.RetrieveOrderAsList(args[0])
 		return nil
 	},
 }

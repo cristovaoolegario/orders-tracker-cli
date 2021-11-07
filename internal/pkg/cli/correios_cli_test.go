@@ -8,6 +8,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli/components"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
 	mock "github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/mock/mock_services"
 )
@@ -36,7 +37,7 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		orderData := cli.RetrieveOrder("not_an_order_number")
 
 		expected := "❌ \tTest error"
-		if len(orderData) == 0 && orderData[0].Text != expected {
+		if len(orderData) == 0 && orderData[0].(components.Item).Text != expected {
 			t.Errorf("Expected %q, got %q", expected, orderData)
 		}
 	})
@@ -63,11 +64,11 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		expectedTime := "⏱\t06 Sep 21 15:58"
 
 		if len(orderData) >= 0 {
-			if orderData[0].Text != expectedDescription {
-				t.Errorf("Expected %q, got %q", expectedDescription, orderData[0].Text)
+			if orderData[0].(components.Item).Text != expectedDescription {
+				t.Errorf("Expected %q, got %q", expectedDescription, orderData[0].(components.Item).Text)
 			}
-			if orderData[0].Time != expectedTime {
-				t.Errorf("Expected %q, got %q", expectedTime, orderData[0].Time)
+			if orderData[0].(components.Item).Time != expectedTime {
+				t.Errorf("Expected %q, got %q", expectedTime, orderData[0].(components.Item).Time)
 			}
 		}
 	})

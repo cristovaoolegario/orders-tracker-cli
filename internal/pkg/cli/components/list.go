@@ -1,4 +1,4 @@
-package cli
+package components
 
 import (
 	"fmt"
@@ -39,14 +39,8 @@ func (m model) View() string {
 	return docStyle.Render(m.list.View())
 }
 
-func RenderList(orderNumber string, events []Item) {
-	items := []list.Item{}
-
-	for _, event := range events {
-		items = append(items, event)
-	}
-
-	m := model{list: list.NewModel(items, list.NewDefaultDelegate(), 0, 0)}
+func RenderList(orderNumber string, events []list.Item) {
+	m := model{list: list.NewModel(events, list.NewDefaultDelegate(), 0, 0)}
 	m.list.Title = orderNumber
 
 	p := tea.NewProgram(m)

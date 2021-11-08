@@ -41,7 +41,7 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		expected := "❌\tTest error\n"
+		expected := "\n❌\tTest error\n"
 		if string(out) != expected {
 			t.Errorf("Expected %q, got %q", expected, out)
 		}
@@ -73,7 +73,7 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		expected := "🎁\tObjeto entregue ao destinatário\n⏱\t06 Sep 21 15:58\n\n"
+		expected := "\n🎁\tObjeto entregue ao destinatário\n⏱\t06 Sep 21 15:58\n\n"
 		if string(out) != expected {
 			t.Errorf("Expected %q, got %q", expected, out)
 		}

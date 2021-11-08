@@ -1,4 +1,4 @@
-package cli
+package format
 
 import (
 	"fmt"
@@ -8,22 +8,22 @@ import (
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli/components"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
-	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/services"
 )
 
-// CorreiosCLI provides the cli validation for correios command
-type CorreiosCLI struct {
-	service services.ICorreiosService
+func FormatListToTerminal(response *dto.CorreiosResponse, err error) {
+	if err == nil {
+		for _, event := range response.Objects[0].Events {
+			fmt.Println(FormatEventByEventCodeAndEventType(event))
+			fmt.Println(FormatDateTimeCreated(event.DateTimeCreated))
+			fmt.Println()
+		}
+	} else {
+		fmt.Printf("❌\t%s\n", err.Error())
+	}
 }
 
-// ProvideCorreiosCLI provides a CorreiosCLI
-var ProvideCorreiosCLI = func(baseURL string) CorreiosCLI {
-	return CorreiosCLI{service: services.ProvideCorreiosService(baseURL)}
-}
-
-// RetrieveOrder prints the order data on the terminal
-func (cli *CorreiosCLI) RetrieveOrder(orderNumber string) []list.Item {
-	response, err := cli.service.FindOrderByNumber(orderNumber)
+// FormatListToListItem formats the service.CorreiosService to a []list.Item output
+func FormatListToListItem(response *dto.CorreiosResponse, err error) []list.Item {
 	renderList := []list.Item{}
 	if err == nil {
 		for _, event := range response.Objects[0].Events {
@@ -43,12 +43,6 @@ func (cli *CorreiosCLI) RetrieveOrder(orderNumber string) []list.Item {
 	}
 
 	return renderList
-}
-
-// RetrieveOrderAsList renders A list on the terminal
-func (cli *CorreiosCLI) RetrieveOrderAsList(orderNumber string) {
-	items := cli.RetrieveOrder(orderNumber)
-	components.RenderList(orderNumber, items)
 }
 
 // FormatEventByEventCodeAndEventType formats a string based on the dto.Event props

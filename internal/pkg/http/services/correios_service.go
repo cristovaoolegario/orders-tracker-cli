@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
 	"io/ioutil"
 	"net/http"
 	"time"
+
+	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
 )
 
 // ICorreiosService represents an interface of CorreiosService

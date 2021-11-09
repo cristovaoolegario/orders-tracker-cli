@@ -31,14 +31,14 @@ var ProvideNewModel = func(orderNumber, baseURL string) *model {
 
 func (m model) Init() tea.Cmd {
 	return tea.Batch(
-		m.loadCmd(),
+		m.LoadCmd(),
 	)
 }
 
-func (m model) loadCmd() tea.Cmd {
+func (m model) LoadCmd() tea.Cmd {
 	return func() tea.Msg {
 		data, err := m.service.FindOrderByNumber(m.orderNumber)
-		return formatListToListItem(data, err)
+		return FormatListToListItem(data, err)
 	}
 }
 
@@ -80,7 +80,7 @@ func RenderBubbleTeaList(orderNumber string) {
 	}
 }
 
-func formatListToListItem(response *dto.CorreiosResponse, err error) []list.Item {
+func FormatListToListItem(response *dto.CorreiosResponse, err error) []list.Item {
 	renderList := []list.Item{}
 	if err == nil {
 		for _, event := range response.Objects[0].Events {

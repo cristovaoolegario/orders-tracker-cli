@@ -3,6 +3,7 @@ package cmd
 
 import (
 	"errors"
+	"fmt"
 
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli/correios"
@@ -14,26 +15,31 @@ var correiosCmd = &cobra.Command{
 	Use:   "correios",
 	Short: "Track an order from correios API",
 	Long:  "A longer description for tracking an order from correios API",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		if len(args) == 0 {
-			return errors.New("you need to provide an order number")
-		}
+	Args:  ValidateArgs,
+	Run:   CorreiosRun,
+}
+
+func ValidateArgs(cmd *cobra.Command, args []string) error {
+	if len(args) == 0 {
+		return errors.New("you need to provide an order number")
+	}
+	return nil
+}
+
+func CorreiosRun(cmd *cobra.Command, args []string) {
+	orderNumber := args[0]
+	old_ui, _ := cmd.Flags().GetBool("old_ui")
+
+	fmt.Print(old_ui)
+
+	if old_ui {
 		correiosCmd := correios.ProvideCorreiosCLI(pkg.CorreiosBaseURL)
-		correiosCmd.RetrieveOrder(args[0])
-		return nil
-	},
+		correiosCmd.RetrieveOrder(orderNumber)
+	}
+	correios.RenderBubbleTeaList(orderNumber)
 }
 
 func init() {
 	rootCmd.AddCommand(correiosCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// correiosCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// correiosCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	correiosCmd.Flags().BoolP("old_ui", "o", false, "Render the old ui")
 }

@@ -78,13 +78,7 @@ func (m model) View() string {
 }
 
 func RenderBubbleTeaList(orderNumber string) {
-	m := ProvideNewModel(orderNumber, pkg.CorreiosBaseURL)
-	m.list = list.NewModel([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
-	m.list.Styles.Title = titleStyle
-	m.list.SetShowStatusBar(false)
-	m.list.SetSpinner(spinner.Pulse)
-	m.list.StartSpinner()
-	m.list.Title = m.orderNumber
+	m := MountList(orderNumber)
 
 	p := tea.NewProgram(m)
 	p.EnterAltScreen()
@@ -93,6 +87,17 @@ func RenderBubbleTeaList(orderNumber string) {
 		fmt.Println("Error running program:", err)
 		os.Exit(1)
 	}
+}
+
+func MountList(orderNumber string) *model {
+	m := ProvideNewModel(orderNumber, pkg.CorreiosBaseURL)
+	m.list = list.NewModel([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
+	m.list.Styles.Title = titleStyle
+	m.list.SetShowStatusBar(false)
+	m.list.SetSpinner(spinner.Pulse)
+	m.list.StartSpinner()
+	m.list.Title = m.orderNumber
+	return m
 }
 
 func FormatListToListItem(response *dto.CorreiosResponse, err error) []list.Item {

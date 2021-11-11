@@ -11,6 +11,7 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli/components"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
+	mock "github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/mock/mock_services"
 )
 
 func TestProvideNewModel(t *testing.T) {
@@ -57,6 +58,17 @@ func TestFormatListToListItem(t *testing.T) {
 		expected := "❌\tTest error"
 		if orderData[0].(components.Item).Text != expected {
 			t.Errorf("Expected %q, got %q", expected, orderData[0].(components.Item).Text)
+		}
+	})
+}
+
+func TestMountList(t *testing.T) {
+	t.Run("Should mount list component with the right properties", func(t *testing.T) {
+		model := MountList("test")
+
+		expectedTitle := "test"
+		if model.list.Title != expectedTitle {
+			t.Fatalf("Should've set the correct title to the list. Expected '%s', Got '%s'", expectedTitle, model.list.Title)
 		}
 	})
 }
@@ -126,6 +138,23 @@ func TestModel_View(t *testing.T) {
 
 		if viewString == "" {
 			t.Fatalf("Should render a string when View is called")
+		}
+	})
+}
+
+func TestModel_LoadCmd(t *testing.T) {
+	t.Run("Should return a tea.Cmd of the type []list.Item", func(t *testing.T) {
+		model := model{}
+		model.service = &mock.CorreiosServiceMock{}
+
+		mock.CorreiosServiceMockFindOrderByNumber = func(orderNumber string) (*dto.CorreiosResponse, error) {
+			return nil, errors.New("Test error")
+		}
+
+		cmd := model.LoadCmd()
+
+		if cmd == nil {
+			t.Fatalf("Should've load the cmd")
 		}
 	})
 }

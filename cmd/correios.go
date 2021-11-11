@@ -3,7 +3,6 @@ package cmd
 
 import (
 	"errors"
-	"fmt"
 
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/cli/correios"
@@ -16,7 +15,7 @@ var correiosCmd = &cobra.Command{
 	Short: "Track an order from correios API",
 	Long:  "A longer description for tracking an order from correios API",
 	Args:  ValidateArgs,
-	Run:   CorreiosRun,
+	RunE:  CorreiosRunE,
 }
 
 func ValidateArgs(cmd *cobra.Command, args []string) error {
@@ -26,17 +25,17 @@ func ValidateArgs(cmd *cobra.Command, args []string) error {
 	return nil
 }
 
-func CorreiosRun(cmd *cobra.Command, args []string) {
+func CorreiosRunE(cmd *cobra.Command, args []string) error {
 	orderNumber := args[0]
 	old_ui, _ := cmd.Flags().GetBool("old_ui")
-
-	fmt.Print(old_ui)
 
 	if old_ui {
 		correiosCmd := correios.ProvideCorreiosCLI(pkg.CorreiosBaseURL)
 		correiosCmd.RetrieveOrder(orderNumber)
+		return nil
 	}
 	correios.RenderBubbleTeaList(orderNumber)
+	return nil
 }
 
 func init() {

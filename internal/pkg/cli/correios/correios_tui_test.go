@@ -81,7 +81,7 @@ func TestModel_Update(t *testing.T) {
 		})
 
 		if updatedModel == nil && err != nil {
-			t.Fatalf("Should update the model when Ctrl+C on the screen")
+			t.Fatalf("Should had updated the model when Ctrl+C on the terminal")
 		}
 	})
 
@@ -95,7 +95,7 @@ func TestModel_Update(t *testing.T) {
 		updatedModel, err := model.Update([]list.Item{})
 
 		if updatedModel == nil && err == nil {
-			t.Fatalf("Should return the updated model and a cmd when list is updated")
+			t.Fatalf("Should've return the updated model and a cmd when list is updated")
 		}
 	})
 

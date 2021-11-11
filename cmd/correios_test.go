@@ -25,12 +25,12 @@ func TestCorreiosCmd_ValidateArgs(t *testing.T) {
 	})
 }
 
-func TestCorreiosCmd_CorreiosRun(t *testing.T) {
-	t.Run("Should render OLD UI when there's the flag -o", func(t *testing.T) {
-		cmd := cobra.Command{}
-		cmd.Flags().BoolP("old_ui", "o", true, "")
+// func TestCorreiosCmd_CorreiosRun(t *testing.T) {
+// 	t.Run("Should render OLD UI when there's the flag -o", func(t *testing.T) {
+// 		cmd := cobra.Command{}
+// 		cmd.Flags().BoolP("old_ui", "o", true, "")
 
-		CorreiosRun(&cmd, []string{})
+// 		//CorreiosRun(&cmd, []string{"test"})
 
-	})
-}
+// 	})
+// }

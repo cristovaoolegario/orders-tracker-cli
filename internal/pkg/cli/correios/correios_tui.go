@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/charmbracelet/bubbles/list"
+	"github.com/charmbracelet/bubbles/spinner"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg"
@@ -14,7 +15,14 @@ import (
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/services"
 )
 
-var docStyle = lipgloss.NewStyle().Margin(1, 2)
+var (
+	docStyle = lipgloss.NewStyle().Margin(1, 2)
+
+	titleStyle = lipgloss.NewStyle().
+			Foreground(lipgloss.Color("#FFFDF5")).
+			Background(lipgloss.Color("#25A065")).
+			Padding(0, 1)
+)
 
 type model struct {
 	orderNumber string
@@ -31,6 +39,7 @@ var ProvideNewModel = func(orderNumber, baseURL string) *model {
 
 func (m model) Init() tea.Cmd {
 	return tea.Batch(
+		spinner.Tick,
 		m.LoadCmd(),
 	)
 }
@@ -50,8 +59,10 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 	case []list.Item:
+		m.list.SetShowStatusBar(true)
+		spinnerCmd := m.list.ToggleSpinner()
 		cmd := m.list.SetItems(msg)
-		return m, cmd
+		return m, tea.Batch(cmd, spinnerCmd)
 	case tea.WindowSizeMsg:
 		top, right, bottom, left := docStyle.GetMargin()
 		m.list.SetSize(msg.Width-left-right, msg.Height-top-bottom)
@@ -59,7 +70,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 	newListModel, cmd := m.list.Update(msg)
 	m.list = newListModel
-	return m, cmd
+	return m, tea.Batch(cmd)
 }
 
 func (m model) View() string {
@@ -69,6 +80,10 @@ func (m model) View() string {
 func RenderBubbleTeaList(orderNumber string) {
 	m := ProvideNewModel(orderNumber, pkg.CorreiosBaseURL)
 	m.list = list.NewModel([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
+	m.list.Styles.Title = titleStyle
+	m.list.SetShowStatusBar(false)
+	m.list.SetSpinner(spinner.Pulse)
+	m.list.StartSpinner()
 	m.list.Title = m.orderNumber
 
 	p := tea.NewProgram(m)

@@ -34,7 +34,13 @@ orders-tracker-cli correios YOUR_ORDER_CODE
 
 ### Example
 
-![How to track a correios order](https://github.com/cristovaoolegario/orders-tracker-cli/blob/main/static/usage_example.gif?raw=true)
+> New TUI
+
+![How to track a correios order new UI](https://github.com/cristovaoolegario/orders-tracker-cli/blob/main/static/new_ui_usage_example.gif?raw=true)
+
+> Old TUI
+
+![How to track a correios order old UI](https://github.com/cristovaoolegario/orders-tracker-cli/blob/main/static/old_ui_usage_example.gif?raw=true)
 
 ## Contributing
 

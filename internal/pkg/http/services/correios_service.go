@@ -50,11 +50,9 @@ func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosR
 	}
 	responseObject := dto.CorreiosResponse{}
 	json.Unmarshal(bodyBytes, &responseObject)
-
-	if len(responseObject.Objects[0].Events) == 0 || responseObject.Objects[0].Events == nil {
+	if len(responseObject.Objects[0].Events) == 0 {
 		errMsg := responseObject.Objects[0].Category
 		return nil, errors.New(errMsg)
-
 	}
 	return &responseObject, nil
 }

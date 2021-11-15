@@ -27,7 +27,7 @@ func TestCorreiosService_FindOrderByNumber(t *testing.T) {
 
 		defer ts.Close()
 
-		service := ProvideCorreiosService(ts.URL + "/%s")
+		service := ProvideCorreiosService(ts.URL)
 		order, err := service.FindOrderByNumber(orderNumber)
 
 		if err != nil && order == nil {

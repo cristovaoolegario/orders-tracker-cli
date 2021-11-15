@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"io/ioutil"
+	"os"
 	"testing"
 
 	"github.com/spf13/cobra"
@@ -25,12 +27,23 @@ func TestCorreiosCmd_ValidateArgs(t *testing.T) {
 	})
 }
 
-// func TestCorreiosCmd_CorreiosRun(t *testing.T) {
-// 	t.Run("Should render OLD UI when there's the flag -o", func(t *testing.T) {
-// 		cmd := cobra.Command{}
-// 		cmd.Flags().BoolP("old_ui", "o", true, "")
+func TestCorreiosCmd_CorreiosRun(t *testing.T) {
+	t.Run("Should render OLD UI when there's the flag -o", func(t *testing.T) {
+		cmd := cobra.Command{}
+		cmd.Flags().BoolP("old_ui", "o", true, "")
 
-// 		//CorreiosRun(&cmd, []string{"test"})
+		rescueStdout := os.Stdout
+		r, w, _ := os.Pipe()
+		os.Stdout = w
+		CorreiosRunE(&cmd, []string{"test"})
 
-// 	})
-// }
+		w.Close()
+		out, _ := ioutil.ReadAll(r)
+		os.Stdout = rescueStdout
+
+		expected := "\n❌\tERRO: Objeto não encontrado na base de dados dos Correios.\n"
+		if string(out) != expected {
+			t.Errorf("Expected %q, got %q", expected, out)
+		}
+	})
+}

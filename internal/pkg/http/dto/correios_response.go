@@ -2,53 +2,57 @@ package dto
 
 // CorreiosResponse represents the entire object of correios API response
 type CorreiosResponse struct {
-	Objects []Object `json:"objetos,omitempty"`
-	Amount  int      `json:"quantidade,omitempty"`
-	Result  string   `json:"resultado,omitempty"`
-	Version string   `json:"versao,omitempty"`
+	Objects []Object `json:"objeto,omitempty"`
+	Search  string   `json:"pesquisa"`
+	Amount  string   `json:"quantidade"`
+	Result  string   `json:"resultado"`
+	Version string   `json:"versao"`
 }
 
 // Event represents an event of correios API response
 type Event struct {
-	Code            string    `json:"codigo"`
-	Description     string    `json:"descricao"`
-	DateTimeCreated string    `json:"dtHrCriado"`
-	Objects         []Object  `json:"objetos"`
-	Amount          int       `json:"quantidade"`
-	Result          string    `json:"resultado"`
-	Version         string    `json:"versao"`
-	Type            string    `json:"tipo"`
-	Unit            Unit      `json:"unidade"`
-	IconURL         string    `json:"urlIcone"`
-	DestinationUnit Unit      `json:"unidadeDestino,omitempty"`
-	Detail          string    `json:"detalhe,omitempty"`
-	Recipient       Recipient `json:"destinatario,omitempty"`
+	DestinationCode string     `json:"cepDestino"`
+	CreationDate    string     `json:"criacao"`
+	Data            string     `json:"data"`
+	PostDate        string     `json:"dataPostagem"`
+	Description     string     `json:"descricao"`
+	Time            string     `json:"hora"`
+	Status          string     `json:"status"`
+	Type            string     `json:"tipo"`
+	Unit            Unit       `json:"unidade"`
+	Details         string     `json:"detalhe,omitempty"`
+	Post            PostalType `json:"postagem,omitempty"`
 }
 
 // Object represents an object of correios API response
 type Object struct {
-	ObjectCode   string     `json:"codObjeto,omitempty"`
-	Message      string     `json:"mensagem,omitempty"`
-	ExpectedDate string     `json:"dtPrevista,omitempty"`
-	Events       []Event    `json:"eventos,omitempty"`
-	Modality     string     `json:"modalidade,omitempty"`
-	PostalType   PostalType `json:"tipoPostal,omitempty"`
+	Category string  `json:"categoria"`
+	Events   []Event `json:"evento"`
+	Name     string  `json:"nome"`
+	Number   string  `json:"numero"`
+	Initials string  `json:"sigla"`
 }
 
 // Address represents an address of correios API response
 type Address struct {
-	City     string `json:"cidade"`
-	State    string `json:"uf"`
-	District string `json:"bairro,omitempty"`
-	Cep      string `json:"cep,omitempty"`
-	Street   string `json:"logradouro,omitempty"`
-	Number   string `json:"numero,omitempty"`
+	District string `json:"bairro"`
+	Cep      string `json:"cep"`
+	Code     string `json:"codigo"`
+	City     string `json:"localidade"`
+	Street   string `json:"logradouro"`
+	Number   string `json:"numero"`
+	Uf       string `json:"uf"`
 }
 
 // Unit represents a unit of correios API response
 type Unit struct {
-	Address Address `json:"endereco"`
-	Type    string  `json:"tipo"`
+	City     string  `json:"cidade"`
+	Code     string  `json:"codigo"`
+	Address  Address `json:"endereco"`
+	Local    string  `json:"local"`
+	Sto      string  `json:"sto"`
+	UnitType string  `json:"tipounidade"`
+	Uf       string  `json:"uf"`
 }
 
 // Recipient represents a recipient of correios API response
@@ -58,7 +62,13 @@ type Recipient struct {
 
 // PostalType represents a postal type of correios API response
 type PostalType struct {
-	Category    string `json:"categoria"`
-	Description string `json:"descricao"`
-	Initials    string `json:"sigla"`
+	Ar              string `json:"ar"`
+	Cepdestino      string `json:"cepdestino"`
+	Datapostagem    string `json:"datapostagem"`
+	Dataprogramada  string `json:"dataprogramada"`
+	Dh              string `json:"dh"`
+	Mp              string `json:"mp"`
+	Peso            string `json:"peso"`
+	Prazotratamento string `json:"prazotratamento"`
+	Volume          string `json:"volume"`
 }

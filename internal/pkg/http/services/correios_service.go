@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/cristovaoolegario/orders-tracker-cli/internal/pkg/http/dto"
@@ -31,7 +32,8 @@ var ProvideCorreiosService = func(url string) ICorreiosService {
 
 // FindOrderByNumber returns the order data or a error
 func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosResponse, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf(cs.baseURL, orderNumber), nil)
+	body := fmt.Sprintf(`{ "code": "%s", "type": "LS" }`, orderNumber)
+	req, err := http.NewRequest("POST", cs.baseURL, strings.NewReader(body))
 	if err != nil {
 		return nil, err
 	}
@@ -48,8 +50,8 @@ func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosR
 	}
 	responseObject := dto.CorreiosResponse{}
 	json.Unmarshal(bodyBytes, &responseObject)
-	errMsg := responseObject.Objects[0].Message
-	if errMsg != "" {
+	if len(responseObject.Objects[0].Events) == 0 {
+		errMsg := responseObject.Objects[0].Category
 		return nil, errors.New(errMsg)
 	}
 	return &responseObject, nil

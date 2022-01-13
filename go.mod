@@ -4,8 +4,8 @@ go 1.16
 
 require (
 	github.com/atotto/clipboard v0.1.4 // indirect
-	github.com/charmbracelet/bubbles v0.9.0
-	github.com/charmbracelet/bubbletea v0.19.1
+	github.com/charmbracelet/bubbles v0.10.0
+	github.com/charmbracelet/bubbletea v0.19.3
 	github.com/charmbracelet/lipgloss v0.4.0
 	github.com/containerd/console v1.0.3 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect

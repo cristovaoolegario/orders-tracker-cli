@@ -45,3 +45,5 @@ orders-tracker-cli correios YOUR_ORDER_CODE
 ## Contributing
 
 If you want to contribute please fork the repository and make the changes as you'd like and submit a new PR.
+
+@cristovaoolegario

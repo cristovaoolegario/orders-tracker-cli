@@ -1,7 +1,7 @@
 package pkg
 
 // CorreiosBaseURL correios API base URL
-const CorreiosBaseURL = "https://correios.contrateumdev.com.br/api/rastreio"
+const CorreiosBaseURL = "https://proxyapp.correios.com.br/v1/sro-rastro/%s"
 
 // IconDictionary represents a dictionary that map dto.Event Code to Icons
 var IconDictionary = map[string]string{

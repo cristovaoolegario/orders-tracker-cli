@@ -1,12 +1,18 @@
 {
-  "objeto": [
+  "objetos": [
     {
-      "categoria": "ERRO: Objeto não encontrado na base de dados dos Correios.",
-      "numero": "BLA"
+      "codObjeto": "bla",
+      "mensagem": "SRO-019: Objeto inválido",
+      "modalidade": "V",
+      "habilitaAutoDeclaracao": false,
+      "permiteEncargoImportacao": false,
+      "habilitaPercorridaCarteiro": false,
+      "bloqueioObjeto": false,
+      "possuiLocker": false,
+      "habilitaLocker": false
     }
   ],
-  "pesquisa": "Lista de Objetos",
-  "quantidade": "1",
-  "resultado": "Todos os eventos",
-  "versao": "3.0"
+  "quantidade": 1,
+  "resultado": "Todos os Eventos",
+  "versao": "1.6.11"
 }

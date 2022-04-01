@@ -1,48 +1,40 @@
 {
-  "objeto": [
+  "objetos": [
     {
-      "categoria": "PACKET STANDARD IMPORTAÇÃO",
-      "evento": [
+      "codObjeto": "QA695731454TL",
+      "dtPrevista": "2021-09-16T20:59:59",
+      "eventos": [
         {
-          "cepDestino": "30678100",
-          "criacao": "06092021155822",
-          "data": "04/08/2021",
-          "dataPostagem": "05/07/2021",
+          "codigo": "BDE",
           "descricao": "Objeto entregue ao destinatário",
-          "diasUteis": "0",
-          "hora": "10:22",
-          "prazoGuarda": "0",
-          "recebedor": {},
-          "status": "01",
-          "tipo": "BDE",
+          "dtHrCriado": "2021-09-06T15:58:08",
+          "tipo": "01",
           "unidade": {
-            "cidade": "BELO HORIZONTE",
-            "codigo": "30647970",
             "endereco": {
-              "bairro": "BARREIRO",
-              "cep": "30647970",
-              "codigo": "26520",
-              "latitude": "-19",
-              "localidade": "BELO HORIZONTE",
-              "logradouro": "AVENIDA SINFRONIO BROCHADO",
-              "longitude": "-44",
-              "numero": "550",
+              "cidade": "BELO HORIZONTE",
               "uf": "MG"
             },
-            "local": "CDD BARREIRO",
-            "sto": "00008862",
-            "tipounidade": "Unidade de Distribuição",
-            "uf": "MG"
-          }
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/smile.png"
         }
       ],
-      "nome": "CORREIOS PACKET STANDARD",
-      "numero": "QA695731454TL",
-      "sigla": "NX"
+      "modalidade": "F",
+      "tipoPostal": {
+        "categoria": "ENCOMENDA PAC",
+        "descricao": "ETIQUETA LOGICA PAC QG",
+        "sigla": "QG"
+      },
+      "habilitaAutoDeclaracao": false,
+      "permiteEncargoImportacao": false,
+      "habilitaPercorridaCarteiro": false,
+      "bloqueioObjeto": false,
+      "possuiLocker": false,
+      "habilitaLocker": false,
+      "habilitaCrowdshipping": false
     }
   ],
-  "pesquisa": "Lista de Objetos",
-  "quantidade": "1",
-  "resultado": "Todos os eventos",
-  "versao": "3.0"
+  "quantidade": 1,
+  "resultado": "Todos os Eventos",
+  "versao": "1.6.11"
 }

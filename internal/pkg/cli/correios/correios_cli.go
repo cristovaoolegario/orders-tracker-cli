@@ -28,7 +28,7 @@ func formatListToString(response *dto.CorreiosResponse, err error) string {
 	var resultString = "\n"
 	if err == nil {
 		for _, event := range response.Objects[0].Events {
-			resultString += fmt.Sprintf("%s\n%s\n\n", format.FormatEventByEventTypeAndEventStatus(event), format.FormatDateTimeCreated(event.CreationDate))
+			resultString += fmt.Sprintf("%s\n%s\n\n", format.FormatEventByEventTypeAndEventStatus(event), format.FormatDateTimeCreated(event.DateTimeCreated))
 		}
 	} else {
 		resultString += fmt.Sprintf("❌\t%s\n", err.Error())

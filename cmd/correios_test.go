@@ -41,7 +41,7 @@ func TestCorreiosCmd_CorreiosRun(t *testing.T) {
 		out, _ := ioutil.ReadAll(r)
 		os.Stdout = rescueStdout
 
-		expected := "\n❌\tERRO: Objeto não encontrado na base de dados dos Correios.\n"
+		expected := "\n❌\tSRO-019: Objeto inválido\n"
 		if string(out) != expected {
 			t.Errorf("Expected %q, got %q", expected, out)
 		}

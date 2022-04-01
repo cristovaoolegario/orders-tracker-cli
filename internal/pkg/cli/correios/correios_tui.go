@@ -106,7 +106,7 @@ func FormatListToListItem(response *dto.CorreiosResponse, err error) []list.Item
 		for _, event := range response.Objects[0].Events {
 			item := components.Item{
 				Text: format.FormatEventByEventTypeAndEventStatus(event),
-				Time: format.FormatDateTimeCreated(event.CreationDate),
+				Time: format.FormatDateTimeCreated(event.DateTimeCreated),
 			}
 			renderList = append(renderList, []list.Item{item}...)
 		}

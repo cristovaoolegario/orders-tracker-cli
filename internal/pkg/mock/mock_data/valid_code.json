@@ -1,341 +1,139 @@
 {
-  "objeto": [
+  "objetos": [
     {
-      "categoria": "PACKET STANDARD IMPORTAÇÃO",
-      "evento": [
+      "codObjeto": "QA695731454TL",
+      "dtPrevista": "2021-09-16T20:59:59",
+      "eventos": [
         {
-          "cepDestino": "30432100",
-          "criacao": "04082021102205",
-          "data": "04/08/2021",
-          "dataPostagem": "05/07/2021",
+          "codigo": "BDE",
           "descricao": "Objeto entregue ao destinatário",
-          "diasUteis": "0",
-          "hora": "10:22",
-          "prazoGuarda": "0",
-          "recebedor": {},
-          "status": "01",
-          "tipo": "BDE",
+          "dtHrCriado": "2021-09-06T15:58:08",
+          "tipo": "01",
           "unidade": {
-            "cidade": "BELO HORIZONTE",
-            "codigo": "30647970",
             "endereco": {
-              "bairro": "BARREIRO",
-              "cep": "30647970",
-              "codigo": "26520",
-              "latitude": "-19",
-              "localidade": "BELO HORIZONTE",
-              "logradouro": "AVENIDA SINFRONIO BROCHADO",
-              "longitude": "-44",
-              "numero": "550",
+              "cidade": "BELO HORIZONTE",
               "uf": "MG"
             },
-            "local": "CDD BARREIRO",
-            "sto": "00008862",
-            "tipounidade": "Unidade de Distribuição",
-            "uf": "MG"
-          }
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/smile.png"
         },
         {
-          "cepDestino": "30620100",
-          "criacao": "04082021085638",
-          "data": "04/08/2021",
-          "dataPostagem": "05/07/2021",
+          "codigo": "OEC",
           "descricao": "Objeto saiu para entrega ao destinatário",
-          "detalheOEC": {
-            "carteiro": "84229136",
-            "distrito": "302",
-            "lista": "149100083111",
-            "unidade": "30647970"
-          },
-          "diasUteis": "0",
-          "hora": "08:56",
-          "prazoGuarda": "0",
-          "status": "01",
-          "tipo": "OEC",
+          "dtHrCriado": "2021-09-06T13:07:28",
+          "tipo": "01",
           "unidade": {
-            "cidade": "BELO HORIZONTE",
-            "codigo": "30647970",
             "endereco": {
               "bairro": "BARREIRO",
               "cep": "30647970",
-              "codigo": "26520",
-              "latitude": "-19",
-              "localidade": "BELO HORIZONTE",
+              "cidade": "BELO HORIZONTE",
               "logradouro": "AVENIDA SINFRONIO BROCHADO",
-              "longitude": "-44",
               "numero": "550",
               "uf": "MG"
             },
-            "local": "CDD BARREIRO",
-            "sto": "00008862",
-            "tipounidade": "Unidade de Distribuição",
-            "uf": "MG"
-          }
-        },
-        {
-          "cepDestino": "30620100",
-          "criacao": "29072021084055",
-          "data": "29/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Objeto em trânsito - por favor aguarde",
-          "destino": [
-            {
-              "bairro": "BARREIRO",
-              "cidade": "BELO HORIZONTE",
-              "codigo": "30647970",
-              "endereco": {
-                "bairro": "BARREIRO",
-                "cep": "30647970",
-                "codigo": "26520",
-                "latitude": "-19",
-                "localidade": "BELO HORIZONTE",
-                "logradouro": "AVENIDA SINFRONIO BROCHADO",
-                "longitude": "-44",
-                "numero": "550",
-                "uf": "MG"
-              },
-              "local": "CDD BARREIRO",
-              "uf": "MG"
-            }
-          ],
-          "diasUteis": "0",
-          "hora": "08:40",
-          "prazoGuarda": "0",
-          "status": "01",
-          "tipo": "DO",
-          "unidade": {
-            "cidade": "BELO HORIZONTE",
-            "codigo": "31255973",
-            "endereco": {
-              "bairro": "UNIVERSITARIO",
-              "cep": "31255984",
-              "codigo": "484980",
-              "localidade": "BELO HORIZONTE",
-              "logradouro": "RODOVIA ANEL RODOVIARIO CELSO MELLO AZEVEDO",
-              "numero": "20901",
-              "uf": "MG"
-            },
-            "local": "CTCE BELO HORIZONTE",
-            "sto": "00431137",
-            "tipounidade": "Unidade de Tratamento",
-            "uf": "MG"
-          }
-        },
-        {
-          "cepDestino": "30620100",
-          "criacao": "22072021204528",
-          "data": "22/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Objeto em trânsito - por favor aguarde",
-          "destino": [
-            {
-              "bairro": "UNIVERSITARIO",
-              "cidade": "BELO HORIZONTE",
-              "codigo": "31255973",
-              "endereco": {
-                "bairro": "UNIVERSITARIO",
-                "cep": "31255984",
-                "codigo": "484980",
-                "localidade": "BELO HORIZONTE",
-                "logradouro": "RODOVIA ANEL RODOVIARIO CELSO MELLO AZEVEDO",
-                "numero": "20901",
-                "uf": "MG"
-              },
-              "local": "CTCE BELO HORIZONTE",
-              "uf": "MG"
-            }
-          ],
-          "diasUteis": "0",
-          "hora": "20:45",
-          "prazoGuarda": "0",
-          "status": "01",
-          "tipo": "RO",
-          "unidade": {
-            "cidade": "CURITIBA",
-            "codigo": "81010971",
-            "endereco": {
-              "bairro": "CURITIBA",
-              "cep": "83330110",
-              "codigo": "296118",
-              "latitude": "-25",
-              "localidade": "CURITIBA",
-              "logradouro": "RUA SALGADO FILHO",
-              "longitude": "-49",
-              "numero": "476",
-              "uf": "PR"
-            },
-            "local": "CENTRO INTERNACIONAL PR",
-            "sto": "00423791",
-            "tipounidade": "Unidade de Logística Integrada",
-            "uf": "PR"
-          }
-        },
-        {
-          "cepDestino": "30620100",
-          "criacao": "21072021143854",
-          "data": "21/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Pagamento confirmado",
-          "diasUteis": "0",
-          "hora": "14:38",
-          "prazoGuarda": "0",
-          "status": "31",
-          "tipo": "PAR",
-          "unidade": {
-            "cidade": "CURITIBA",
-            "codigo": "81010971",
-            "endereco": {
-              "bairro": "CURITIBA",
-              "cep": "83330110",
-              "codigo": "296118",
-              "latitude": "-25",
-              "localidade": "CURITIBA",
-              "logradouro": "RUA SALGADO FILHO",
-              "longitude": "-49",
-              "numero": "476",
-              "uf": "PR"
-            },
-            "local": "CENTRO INTERNACIONAL PR",
-            "sto": "00423791",
-            "tipounidade": "Unidade de Logística Integrada",
-            "uf": "PR"
-          }
-        },
-        {
-          "cepDestino": "30620100",
-          "criacao": "19072021122152",
-          "data": "19/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Aguardando pagamento",
-          "diasUteis": "0",
-          "hora": "12:21",
-          "prazoGuarda": "0",
-          "status": "17",
-          "tipo": "PAR",
-          "unidade": {
-            "cidade": "CURITIBA",
-            "codigo": "81010971",
-            "endereco": {
-              "bairro": "CURITIBA",
-              "cep": "83330110",
-              "codigo": "296118",
-              "latitude": "-25",
-              "localidade": "CURITIBA",
-              "logradouro": "RUA SALGADO FILHO",
-              "longitude": "-49",
-              "numero": "476",
-              "uf": "PR"
-            },
-            "local": "CENTRO INTERNACIONAL PR",
-            "sto": "00423791",
-            "tipounidade": "Unidade de Logística Integrada",
-            "uf": "PR"
-          }
-        },
-        {
-          "cepDestino": "30620100",
-          "criacao": "16072021205111",
-          "data": "16/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Encaminhado para fiscalização aduaneira",
-          "diasUteis": "0",
-          "hora": "20:51",
-          "prazoGuarda": "0",
-          "status": "21",
-          "tipo": "PAR",
-          "unidade": {
-            "cidade": "CURITIBA",
-            "codigo": "81010971",
-            "endereco": {
-              "bairro": "CURITIBA",
-              "cep": "83330110",
-              "codigo": "296118",
-              "latitude": "-25",
-              "localidade": "CURITIBA",
-              "logradouro": "RUA SALGADO FILHO",
-              "longitude": "-49",
-              "numero": "476",
-              "uf": "PR"
-            },
-            "local": "CENTRO INTERNACIONAL PR",
-            "sto": "00423791",
-            "tipounidade": "Unidade de Logística Integrada",
-            "uf": "PR"
-          }
-        },
-        {
-          "cepDestino": "30620100",
-          "criacao": "16072021144042",
-          "data": "16/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Objeto recebido pelos Correios do Brasil",
-          "diasUteis": "0",
-          "hora": "14:40",
-          "prazoGuarda": "0",
-          "status": "16",
-          "tipo": "PAR",
-          "unidade": {
-            "cidade": "CURITIBA",
-            "codigo": "81010971",
-            "endereco": {
-              "bairro": "CURITIBA",
-              "cep": "83330110",
-              "codigo": "296118",
-              "latitude": "-25",
-              "localidade": "CURITIBA",
-              "logradouro": "RUA SALGADO FILHO",
-              "longitude": "-49",
-              "numero": "476",
-              "uf": "PR"
-            },
-            "local": "CENTRO INTERNACIONAL PR",
-            "sto": "00423791",
-            "tipounidade": "Unidade de Logística Integrada",
-            "uf": "PR"
-          }
-        },
-        {
-          "cepDestino": "44640000",
-          "criacao": "05072021231549",
-          "data": "05/07/2021",
-          "dataPostagem": "05/07/2021",
-          "descricao": "Objeto postado",
-          "diasUteis": "0",
-          "hora": "23:15",
-          "postagem": {
-            "ar": "N",
-            "cepdestino": "44640000",
-            "datapostagem": "01/01/1900 00:00:00",
-            "dataprogramada": "01/01/1900 00:00:00",
-            "dh": "N",
-            "mp": "N",
-            "peso": "0",
-            "prazotratamento": "0",
-            "volume": "0"
+            "tipo": "Unidade de Distribuição"
           },
-          "prazoGuarda": "0",
-          "status": "01",
-          "tipo": "PO",
+          "urlIcone": "/public-resources/img/pre-atendimento-cor.png"
+        },
+        {
+          "codigo": "DO",
+          "descricao": "Objeto em trânsito - por favor aguarde",
+          "dtHrCriado": "2021-09-06T07:52:06",
+          "tipo": "01",
           "unidade": {
-            "codigo": "00156000",
             "endereco": {
-              "codigo": "39695",
-              "latitude": "35.86166",
-              "longitude": "104.195397"
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
             },
-            "local": "CHINA",
-            "sto": "99999999",
-            "tipounidade": "País"
-          }
+            "tipo": "Unidade de Tratamento"
+          },
+          "unidadeDestino": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Distribuição"
+          },
+          "urlIcone": "/public-resources/img/caminhao-cor.png"
+        },
+        {
+          "codigo": "DO",
+          "descricao": "Objeto em trânsito - por favor aguarde",
+          "dtHrCriado": "2021-09-03T08:04:33",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "SAO JOSE",
+              "uf": "SC"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "unidadeDestino": {
+            "endereco": {
+              "cidade": "BELO HORIZONTE",
+              "uf": "MG"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "urlIcone": "/public-resources/img/caminhao-cor.png"
+        },
+        {
+          "codigo": "RO",
+          "descricao": "Objeto em trânsito - por favor aguarde",
+          "dtHrCriado": "2021-09-02T10:03:36",
+          "tipo": "01",
+          "unidade": {
+            "endereco": {
+              "cidade": "JOINVILLE",
+              "uf": "SC"
+            },
+            "tipo": "Agência dos Correios"
+          },
+          "unidadeDestino": {
+            "endereco": {
+              "cidade": "SAO JOSE",
+              "uf": "SC"
+            },
+            "tipo": "Unidade de Tratamento"
+          },
+          "urlIcone": "/public-resources/img/caminhao-cor.png"
+        },
+        {
+          "codigo": "PO",
+          "descricao": "Objeto postado após o horário limite da unidade",
+          "detalhe": "Sujeito a encaminhamento no próximo dia útil",
+          "dtHrCriado": "2021-09-01T16:40:51",
+          "tipo": "09",
+          "unidade": {
+            "endereco": {
+              "cidade": "JOINVILLE",
+              "uf": "SC"
+            },
+            "tipo": "Agência dos Correios"
+          },
+          "destinatario": {
+            "cep": "30620100"
+          },
+          "urlIcone": "/public-resources/img/agencia-cor.png"
         }
       ],
-      "nome": "CORREIOS PACKET STANDARD",
-      "numero": "QA695731454TL",
-      "sigla": "NX"
+      "modalidade": "F",
+      "tipoPostal": {
+        "categoria": "ENCOMENDA PAC",
+        "descricao": "ETIQUETA LOGICA PAC QG",
+        "sigla": "QG"
+      },
+      "habilitaAutoDeclaracao": false,
+      "permiteEncargoImportacao": false,
+      "habilitaPercorridaCarteiro": false,
+      "bloqueioObjeto": false,
+      "possuiLocker": false,
+      "habilitaLocker": false,
+      "habilitaCrowdshipping": false
     }
   ],
-  "pesquisa": "Lista de Objetos",
-  "quantidade": "1",
-  "resultado": "Todos os eventos",
-  "versao": "3.0"
+  "quantidade": 1,
+  "resultado": "Todos os Eventos",
+  "versao": "1.6.11"
 }

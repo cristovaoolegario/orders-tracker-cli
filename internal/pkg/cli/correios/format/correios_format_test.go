@@ -10,9 +10,9 @@ import (
 func TestFormatEventByEventCode(t *testing.T) {
 	t.Run("Should return correct icon and description when event code exists", func(t *testing.T) {
 		testItems := []struct {
-			Type   string
-			Status string
-			Icon   string
+			Code string
+			Type string
+			Icon string
 		}{
 			{"BDE", "01", "🎁"},
 			{"BDE", "20", "📪"},
@@ -34,8 +34,8 @@ func TestFormatEventByEventCode(t *testing.T) {
 
 		for _, item := range testItems {
 			formattedString := FormatEventByEventTypeAndEventStatus(dto.Event{
+				Code:        item.Code,
 				Type:        item.Type,
-				Status:      item.Status,
 				Description: "test",
 			})
 
@@ -61,8 +61,8 @@ func TestFormatDateTimeCreated(t *testing.T) {
 			input    string
 			expected string
 		}{
-			{"04082021102205", "04 Aug 21 10:22"},
-			{"15121990091308", "15 Dec 90 09:13"},
+			{"2021-11-04T15:25:08", "04 Nov 21 15:25"},
+			{"1990-12-15T09:13:08", "15 Dec 90 09:13"},
 		}
 
 		for _, item := range items {

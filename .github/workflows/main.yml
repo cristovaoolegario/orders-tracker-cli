@@ -29,7 +29,7 @@ jobs:
         run: go test -v -coverprofile=coverage.txt ./...
 
       - name: Upload Coverage
-        uses: codecov/codecov-action@v2.1.0
+        uses: codecov/codecov-action@v3
         continue-on-error: true
         with:
           token: ${{secrets.CODECOV_TOKEN}}

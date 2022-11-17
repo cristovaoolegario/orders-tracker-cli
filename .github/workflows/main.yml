@@ -39,7 +39,7 @@ jobs:
     name: "Run static analysis"
     runs-on: ubuntu-latest
     steps:
-      - uses: WillAbides/setup-go-faster@v1.5.0
+      - uses: WillAbides/setup-go-faster@v1.8.0
         with:
           go-version: 1.17
       - run: "GO111MODULE=on go get honnef.co/go/tools/cmd/staticcheck"

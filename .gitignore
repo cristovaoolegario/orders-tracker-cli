@@ -16,3 +16,6 @@
 
 .idea/
  .env
+
+# binary
+orders-tracker-cli

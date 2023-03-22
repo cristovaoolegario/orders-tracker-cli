@@ -8,10 +8,6 @@
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/cristovaoolegario/orders-tracker-cli)](https://github.com/cristovaoolegario/orders-tracker-cli/releases)
 [![GitHub license](https://img.shields.io/github/license/cristovaoolegario/orders-tracker-cli)](https://github.com/cristovaoolegario/orders-tracker-cli/blob/main/LICENSE)
 
-> This project still under development.
->
-> This project was inspired by [track-correios](https://github.com/mauriciomutte/track-correios).
-
 A CLI tool written in [Go](https://golang.org/) to track your orders.
 
 It supports the following APIs:
@@ -21,9 +17,7 @@ It supports the following APIs:
 ## Installing
 
 ```shell
-go get github.com/cristovaoolegario/orders-tracker-cli
-
-go install github.com/cristovaoolegario/orders-tracker-cli
+go install github.com/cristovaoolegario/orders-tracker-cli@latest
 ```
 
 ## Usage

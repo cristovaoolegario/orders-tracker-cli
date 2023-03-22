@@ -77,6 +77,9 @@ func (cs *CorreiosService) FindOrderByNumber(orderNumber string) (*dto.CorreiosR
 	}
 	responseObject := dto.CorreiosResponse{}
 	json.Unmarshal(bodyBytes, &responseObject)
+	if len(responseObject.Objects) == 0{
+		return nil, errors.New(string(bodyBytes))
+	}
 	errMsg := responseObject.Objects[0].Message
 	if errMsg != "" {
 		return nil, errors.New(errMsg)

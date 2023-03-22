@@ -62,3 +62,7 @@ type PostalType struct {
 	Description string `json:"descricao"`
 	Initials    string `json:"sigla"`
 }
+
+type TokenType struct {
+	Token string `json:"token"`
+}

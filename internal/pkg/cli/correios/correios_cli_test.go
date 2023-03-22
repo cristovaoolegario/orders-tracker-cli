@@ -14,7 +14,7 @@ import (
 func TestProvideCorreiosCLI(t *testing.T) {
 	t.Run("Should return a CorreiosCLI instance", func(t *testing.T) {
 		baseURL := "test"
-		cli := ProvideCorreiosCLI(baseURL)
+		cli := ProvideCorreiosCLI(baseURL, baseURL)
 
 		if cli.service == nil {
 			t.Errorf("Should have provided a service.")
@@ -51,7 +51,7 @@ func TestCorreiosCLI_RetrieveOrder(t *testing.T) {
 		cli := CorreiosCLI{}
 		cli.service = &mock.CorreiosServiceMock{}
 
-		mock.CorreiosServiceMockFindOrderByNumber = func(orderNumber string) (*dto.CorreiosResponse, error) {
+		mock.CorreiosServiceMockFindOrderByNumber = func(_ string) (*dto.CorreiosResponse, error) {
 			jsonFile, _ := os.Open("../../mock/mock_data/valid_code_with_one_event.json")
 
 			defer jsonFile.Close()

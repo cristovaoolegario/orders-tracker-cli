@@ -1,5 +1,13 @@
 package pkg
 
+import "encoding/base64"
+
+// CorreiosValidationUrl correios API validation URL
+const CorreiosValidationUrl = "https://proxyapp.correios.com.br/v1/app-validation"
+
+// ValidationData body that will be use in the autentication request
+var ValidationData = []byte(`{"requestToken":"` + base64.StdEncoding.EncodeToString([]byte("android;br.com.correios.preatendimento;F32E29976709359859E0B97F6F8A483B9B953578")) + `"}`)
+
 // CorreiosBaseURL correios API base URL
 const CorreiosBaseURL = "https://proxyapp.correios.com.br/v1/sro-rastro/%s"
 

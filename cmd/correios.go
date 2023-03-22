@@ -18,7 +18,7 @@ var correiosCmd = &cobra.Command{
 	RunE:  CorreiosRunE,
 }
 
-func ValidateArgs(cmd *cobra.Command, args []string) error {
+func ValidateArgs(_ *cobra.Command, args []string) error {
 	if len(args) == 0 {
 		return errors.New("you need to provide an order number")
 	}
@@ -30,7 +30,7 @@ func CorreiosRunE(cmd *cobra.Command, args []string) error {
 	old_ui, _ := cmd.Flags().GetBool("old_ui")
 
 	if old_ui {
-		correiosCmd := correios.ProvideCorreiosCLI(pkg.CorreiosBaseURL)
+		correiosCmd := correios.ProvideCorreiosCLI(pkg.CorreiosBaseURL, pkg.CorreiosValidationUrl)
 		correiosCmd.RetrieveOrder(orderNumber)
 		return nil
 	}

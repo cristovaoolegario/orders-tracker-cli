@@ -30,10 +30,10 @@ type model struct {
 	list        list.Model
 }
 
-var ProvideNewModel = func(orderNumber, baseURL string) *model {
+var ProvideNewModel = func(orderNumber, baseURL, validationURL string) *model {
 	return &model{
 		orderNumber: orderNumber,
-		service:     services.ProvideCorreiosService(baseURL),
+		service:     services.ProvideCorreiosService(baseURL, validationURL),
 	}
 }
 
@@ -90,7 +90,7 @@ func RenderBubbleTeaList(orderNumber string) {
 }
 
 func MountList(orderNumber string) *model {
-	m := ProvideNewModel(orderNumber, pkg.CorreiosBaseURL)
+	m := ProvideNewModel(orderNumber, pkg.CorreiosBaseURL, pkg.CorreiosValidationUrl)
 	m.list = list.NewModel([]list.Item{}, list.NewDefaultDelegate(), 0, 0)
 	m.list.Styles.Title = titleStyle
 	m.list.SetShowStatusBar(false)

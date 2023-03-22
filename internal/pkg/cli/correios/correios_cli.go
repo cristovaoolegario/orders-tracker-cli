@@ -14,8 +14,8 @@ type CorreiosCLI struct {
 }
 
 // ProvideCorreiosCLI provides a CorreiosCLI
-var ProvideCorreiosCLI = func(baseURL string) CorreiosCLI {
-	return CorreiosCLI{service: services.ProvideCorreiosService(baseURL)}
+var ProvideCorreiosCLI = func(baseURL, validationURL string) CorreiosCLI {
+	return CorreiosCLI{service: services.ProvideCorreiosService(baseURL, validationURL)}
 }
 
 // RetrieveOrder prints the order data on the terminal

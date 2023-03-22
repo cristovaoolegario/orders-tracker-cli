@@ -16,7 +16,7 @@ import (
 
 func TestProvideNewModel(t *testing.T) {
 	t.Run("Should provide model when other dependencies are ok", func(t *testing.T) {
-		model := ProvideNewModel("order_number", "http://example_url.com")
+		model := ProvideNewModel("order_number", "http://example_url.com", "http://example_url.com")
 
 		if model.orderNumber == "" || model.service == nil {
 			t.Fatalf("Dependencies weren't provided correctly")
